@@ -1,0 +1,174 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Web IDE Theme - Glassmorphism + Neon Accents
+   * Color variables expressed as HSL values for tailwind.config.ts compatibility
+  */
+  :root {
+    /* Light mode */
+    --background: 0 0% 98%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 198 93% 60%;
+    --primary-foreground: 240 10% 3.9%;
+
+    --secondary: 280 100% 70%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 188 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 4.8% 95.9%;
+    --input: 240 4.8% 95.9%;
+    --ring: 198 93% 60%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 240 13% 8%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 198 93% 60%;
+    --sidebar-primary-foreground: 240 13% 8%;
+    --sidebar-accent: 240 7.7% 19.8%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 240 7.7% 19.8%;
+    --sidebar-ring: 198 93% 60%;
+
+    /* Web IDE specific */
+    --glass: rgba(255, 255, 255, 0.04);
+    --glass-border: rgba(255, 255, 255, 0.08);
+  }
+
+  .dark {
+    --background: 240 13% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 240 13% 13%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 240 13% 13%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 198 93% 60%;
+    --primary-foreground: 240 13% 8%;
+
+    --secondary: 280 100% 70%;
+    --secondary-foreground: 240 13% 8%;
+
+    --muted: 240 7.7% 30%;
+    --muted-foreground: 210 14% 66%;
+
+    --accent: 188 100% 50%;
+    --accent-foreground: 240 13% 8%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 7.7% 30%;
+    --input: 240 7.7% 30%;
+    --ring: 198 93% 60%;
+
+    --sidebar-background: 240 13% 8%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 198 93% 60%;
+    --sidebar-primary-foreground: 240 13% 8%;
+    --sidebar-accent: 240 7.7% 19.8%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 240 7.7% 19.8%;
+    --sidebar-ring: 198 93% 60%;
+
+    /* Web IDE specific */
+    --glass: rgba(255, 255, 255, 0.04);
+    --glass-border: rgba(255, 255, 255, 0.08);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  pre,
+  code {
+    overflow-x: auto;
+    white-space: pre;
+  }
+
+  /* Custom scrollbar styling */
+  ::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-900/20;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-700 rounded hover:bg-slate-600;
+  }
+
+  /* Selection styling */
+  ::selection {
+    @apply bg-neon-teal/30 text-inherit;
+  }
+
+  ::-moz-selection {
+    @apply bg-neon-teal/30 text-inherit;
+  }
+}
+
+@layer components {
+  /* Glassmorphism base */
+  .glass {
+    @apply bg-glass backdrop-blur-glass border border-glass-border;
+  }
+
+  /* Neon glow utilities */
+  .glow-teal {
+    @apply shadow-glow-teal;
+  }
+
+  .glow-purple {
+    @apply shadow-glow-purple;
+  }
+
+  /* Focus rings */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-neon-teal/50 focus:ring-offset-2 focus:ring-offset-slate-900;
+  }
+
+  /* Animated gradient */
+  .animate-gradient {
+    @apply bg-gradient-to-r bg-clip-text animate-pulse;
+  }
+}
